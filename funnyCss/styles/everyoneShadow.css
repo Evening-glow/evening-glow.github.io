@@ -1,0 +1,37 @@
+.everyone-shadow {
+    display: flex;
+    justify-content: space-around;
+}
+
+.esd1 {
+    --bgcolor: #ffbf00;
+    filter: drop-shadow(0px 0px 10px var(--bgcolor));
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-bottom-color: var(--bgcolor);
+    border-right-color: var(--bgcolor);
+    position: relative;
+}
+
+.triangle::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: -50px;
+    top: -20px;
+    background-color: var(--bgcolor);
+    clip-path: circle(50%);
+}
+
+.esd2 {
+    --bgcolor: purple;
+    --borderColor: #ffbf00;
+    --borderWidth: 0.5px;
+    filter:
+        drop-shadow(0px 0px var(--borderWidth) var(--borderColor)) drop-shadow(0px 0px var(--borderWidth) var(--borderColor)) drop-shadow(0px 0px var(--borderWidth) var(--borderColor));
+}

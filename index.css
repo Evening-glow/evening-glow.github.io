@@ -1,0 +1,160 @@
+body,
+html,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--global-color);
+}
+
+a:link {
+    color: var(--global-color);
+}
+
+a:visited {
+    color: var(--global-color);
+}
+
+a:hover {
+    color: var(--global-hover-color);
+}
+
+a:active {
+    color: var(--banner-color);
+}
+
+html {
+    scroll-behavior: smooth;
+    min-width: 300px;
+}
+
+:root {
+    --header-bgcolor: #fff;
+    --bgcolor1: #f9f9f9;
+    --boxshadow-0: 0 4px 14px rgba(33, 29, 79, 0.16);
+    --border-radius-2: 0.9375rem;
+    --banner-color: #211d4f;
+    --global-hover-color: #437efe;
+    --global-color: #333;
+}
+
+@media (max-width:600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width:640px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media (min-width:980px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+@media (min-width:1100px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+#banner {
+    width: 100%;
+    height: 32rem;
+    background-image: url('./image/banner-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: var(--banner-color);
+    padding-top: 200px;
+    box-sizing: border-box;
+}
+
+#banner h1 {
+    font-size: 3rem;
+}
+
+#banner p {
+    font-size: 1.5rem;
+}
+
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3rem;
+    width: 80vw;
+    font-size: 1rem;
+    min-width: 300px;
+    margin: 0 auto;
+    background-color: var(--header-bgcolor);
+    box-shadow: var(--boxshadow-0);
+    border-radius: 0 0 var(--border-radius-2) var(--border-radius-2);
+}
+
+header nav {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header .links {
+    display: flex;
+}
+
+.links a {
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#projects {
+    padding-top: 40px;
+    width: 80vw;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pro-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.pro-item img {
+    width: 30vw;
+    height: auto;
+    box-shadow: 5px 5px 10px #efefef;
+    margin-right: 2vw;
+}
+
+#footer {
+    width: 100%;
+    height: 30px;
+    background: #333;
+    color: #999;
+    padding-left: 15px;
+    box-sizing: border-box;
+}

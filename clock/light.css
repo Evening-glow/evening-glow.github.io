@@ -1,0 +1,12 @@
+:root {
+    --bg-color: linear-gradient(158.53deg, #eef0f5 14.11%, #e2e4ea 85.89%);
+    --clock-bg: linear-gradient(134.17deg, #e6e9ef 4.98%, #e6e9ef 4.99%, #eef0f5 94.88%);
+    --clock-border: linear-gradient(170deg, #ffffff, #bac3cf);
+    --clock-shadow: 19px 25px 92px -32px rgba(166, 180, 200, 0.45), -20px -20px 61px rgba(255, 255, 255, 0.53),
+        13px 14px 12px -6px rgba(166, 180, 200, 0.57);
+    --clock-inner-bg: linear-gradient(90deg, #eceef3 0%, #f1f2f7 100%);
+    --clock-inner-shadow: inset -12px -12px 30px rgba(255, 255, 255, 0.2), inset 7px 7px 8px rgba(166, 180, 200, 0.52),
+        inset 10px 11px 30px -1px rgba(166, 180, 200, 0.71);
+    --hand-color: #646e82;
+    --second-hand-color: #fd382d;
+}

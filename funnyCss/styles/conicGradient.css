@@ -1,0 +1,71 @@
+.conicContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.c-item1 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(red, orange, yellow, green, blue, purple, red);
+}
+
+.c-item2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(red 50%, orange 50%);
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 180px;
+    height: 180px;
+    text-align: center;
+    line-height: 180px;
+    border-radius: 50%;
+}
+
+.c-item3 {
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(#fff 90deg, #000 0.25turn 0.5turn, #fff 1rad 1.5rad, #000 300grad);
+    background-size: 25% 25%;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.c-item4 {
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(from var(--angle), transparent,
+            rgba(168, 239, 255, 1),
+            transparent 30%);
+    animation: rotate 3s infinite linear;
+    position: relative;
+}
+
+.mask {
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}

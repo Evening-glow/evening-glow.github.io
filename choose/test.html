@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('mycanvas')
+        canvas.width = 600;
+        canvas.height = 600
+        const ctx = canvas.getContext('2d')
+        ctx.translate(200, 200)
+        ctx.beginPath()
+        ctx.strokeStyle = 'green'
+        ctx.moveTo(0, 0)
+        ctx.lineTo(200, 0)
+        ctx.fillText('没旋转前', 50, 0)
+        // ctx.font = '20px sans-serif'
+        ctx.stroke()
+        ctx.closePath()
+        ctx.save()
+        for (let i = 0; i <= 12; i++) {
+            let jiaodu = 30 * i
+            let ratateAngle = (Math.PI / 180) * jiaodu
+            ctx.restore()
+            ctx.save()
+            ctx.rotate(ratateAngle)
+            ctx.beginPath()
+            ctx.strokeStyle = '#e74478'
+            ctx.moveTo(0, 0)
+            ctx.lineTo(200, 0)
+            ctx.fillText('旋转' + jiaodu, 20 + 12 * i, 0)
+            // ctx.font = '20px sans-serif'
+            ctx.stroke()
+            ctx.closePath()
+        }
+    </script>
+</body>
+
+</html>

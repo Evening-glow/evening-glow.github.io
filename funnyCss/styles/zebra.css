@@ -1,0 +1,19 @@
+.zebra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+    z-index: -1;
+    background-image: repeating-radial-gradient(circle at 100% 100%, #fff 0, #fff 150px, #000 150px, #000 300px);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.zebra-font {
+    color: #fff;
+    font-size: 8rem;
+    mix-blend-mode: difference;
+}
