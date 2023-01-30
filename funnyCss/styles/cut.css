@@ -1,0 +1,36 @@
+.cutBox div {
+    width: 200px;
+    height: 200px;
+}
+
+.cutBox {
+    --color: #c00000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cut {
+    background:
+        linear-gradient(135deg, transparent 15px, var(--color) 0) top left,
+        linear-gradient(-135deg, transparent 15px, var(--color) 0) top right,
+        linear-gradient(45deg, transparent 15px, var(--color) 0) bottom left,
+        linear-gradient(-45deg, transparent 15px, var(--color) 0) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.cut1 {
+    background: radial-gradient(circle at top left, transparent 30px, var(--color) 30px);
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+/*阴影实现切角*/
+.cut2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 50px 5px 0 0 #ff0;
+}

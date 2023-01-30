@@ -1,0 +1,78 @@
+.sd-container {
+    background-color: #000;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sd-container div {
+    width: 50px;
+    height: 50px;
+}
+
+.sd1 {
+    border-radius: 50%;
+    --bgcolor: #fff;
+    background-color: var(--bgcolor);
+    box-shadow:
+        25px -15px 0 0px var(--bgcolor),
+        24px 11px 0 0 var(--bgcolor),
+        50px -10px 0 0px var(--bgcolor),
+        60px 0px 0 0 var(--bgcolor);
+}
+
+.sd2 {
+    /* background-color: #fff; */
+    border-radius: 50%;
+    box-shadow: inset -6px 0 0 0 #c00000;
+    filter: blur(2px);
+    animation: round infinite linear 1s;
+}
+
+@keyframes round {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sd3.sd3 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #0a042b;
+    box-shadow: inset 60px 0 0 0 #7c3e62,
+        60px 0 0 0 #e88382;
+    ;
+}
+
+.sd4 {
+    position: relative;
+    background-color: #e66465;
+}
+
+.sd4::after,
+.sd4::before {
+    content: '';
+    position: absolute;
+}
+
+.sd4::after {
+    width: 20px;
+    height: 50px;
+    background-image: linear-gradient(90deg, #e66465, transparent);
+    transform-origin: left;
+    right: -40%;
+    top: 0;
+    transform: skewY(40deg);
+}
+
+.sd4::before {
+    width: 50px;
+    height: 20px;
+    background-image: linear-gradient(#e66465, transparent);
+    transform-origin: top;
+    transform: skewX(45deg);
+    bottom: -40%;
+    left: 0;
+}
