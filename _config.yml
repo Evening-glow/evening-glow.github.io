@@ -1,0 +1,129 @@
+# ============================================================
+# Hexo 站点配置 · 山野笔记
+# 依据《产品需求文档.md》v1.0 配置
+# ============================================================
+
+# ---------------- 站点信息 ----------------
+title: 山野笔记
+subtitle: 作品 · 技术 · 学习
+description: 个人博客：作品集 / 技术分享 / 学习记录
+keywords:
+author: 博主
+language: zh-CN
+timezone: Asia/Shanghai
+
+# ---------------- URL ----------------
+# 部署到 GitHub Pages 时修改为实际地址：
+#   用户站点（username.github.io）   -> url: https://username.github.io      root: /
+#   项目站点（username.github.io/xx）-> url: https://username.github.io/xx   root: /xx/
+url: https://example.github.io
+root: /
+# 一级分类（模块）为目录，二级分类为子目录，末级为文件名
+permalink: :category/:title/
+permalink_defaults:
+
+# ---------------- 目录 ----------------
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+# 列表页路径 = 一级分类/二级分类（如 /portfolio/、/portfolio/web/）
+category_dir: '/'
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# ---------------- 写作 ----------------
+new_post_name: :title.md # 新文章文件名
+default_layout: post
+titlecase: false
+external_link:
+  enable: true # 站内链接新窗口打开
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+# 开启文章资源目录：图片与文章同目录分组存放（PRD 9.3）
+post_asset_folder: true
+relative_link: false
+future: true
+# 代码块：无行号、无外框，使用 highlight.js 配色
+syntax_highlighter: highlight.js
+highlight:
+  line_number: false
+  auto_detect: false
+  tab_replace: ''
+  wrap: false
+  hljs: true
+prismjs:
+  preprocess: false
+  line_number: false
+  tab_replace: ''
+
+# ---------------- 首页 ----------------
+# 首页由模板自行控制展示条数，关闭分页
+index_generator:
+  path: ''
+  per_page: 0
+  order_by: -date
+
+# ---------------- 分类 ----------------
+# 分类是唯一的组织维度（两级：一级=模块，二级=模块下分类）
+default_category: uncategorized
+# 分类页由内置 category 生成器产出，关闭其分页
+category_generator:
+  per_page: 0
+  order_by: -date
+# 分类中文名 -> URL 片段（英文），同时决定列表页路径与文章永久链接
+category_map:
+  # 一级：三大模块
+  作品集: portfolio
+  技术分享: blog
+  学习记录: notes
+  # 二级：作品集
+  Web 应用: web
+  移动端 / 小程序: mobile
+  工具 / 脚本: tools
+  开源项目: open-source
+  设计 / 视觉: design
+  其他: other
+  # 二级：技术分享
+  前端: frontend
+  后端: backend
+  工程化 / 架构: architecture
+  性能优化: performance
+  运维 / 部署: devops
+  工具链: toolchain
+  # 二级：学习记录
+  读书笔记: reading
+  课程笔记: course
+  源码学习: source-code
+  专题系列: series
+  算法 / 刷题: algorithm
+  杂记: misc
+tag_map:
+
+# ---------------- 元数据 ----------------
+meta_generator: true
+
+# ---------------- 日期格式 ----------------
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'date'
+
+# ---------------- 分页 ----------------
+per_page: 0
+pagination_dir: page
+
+# ---------------- 包含 / 排除 ----------------
+include:
+exclude:
+ignore:
+
+# ---------------- 扩展 ----------------
+theme: shanye
+
+# ---------------- 部署 ----------------
+# 部署到 GitHub Pages（见 PRD 第 11 节）
+deploy:
+  type: ''

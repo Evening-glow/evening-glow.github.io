@@ -1,0 +1,46 @@
+<%
+  /* 详情页：三大模块共用，作品集额外展示专属字段（PRD 9.2） */
+  var mod = mod_of_post(page);
+  var sub = sub_of_post(page);
+  var isPortfolio = !!(mod && mod.key === 'portfolio');
+  var tocHtml = toc(page.content, { list_number: false, max_depth: 3 });
+%>
+<main class="container">
+  <article class="article">
+    <a class="back" href="<%- mod_url(mod) %>">← 返回<%= mod ? mod.name : '列表' %></a>
+    <h1><%= page.title %></h1>
+    <div class="meta">
+      <span class="chip"><%= mod ? mod.name : '' %></span>
+      <span class="chip muted"><%= sub %></span> · <%= date(page.date, 'YYYY-MM-DD') %>
+      <% if (page.updated && page.updated.valueOf() !== page.date.valueOf()) { %> · 更新于 <%= date(page.updated, 'YYYY-MM-DD') %><% } %>
+    </div>
+    <% if (page.description) { %><p class="lead"><%= page.description %></p><% } %>
+    <% if (page.cover) { %><div class="article-cover"><img src="<%- page.cover %>" alt="<%= page.title %>"></div><% } %>
+
+    <% if (isPortfolio) { %>
+    <div class="portfolio-meta">
+      <% if (page.stack && page.stack.length) { %>
+      <div class="row"><span class="label">技术栈</span><span><% page.stack.forEach(function (s) { %><span class="chip muted"><%= s %></span><% }); %></span></div>
+      <% } %>
+      <% if (page.status) { %><div class="row"><span class="label">状态</span><span><%= page.status %></span></div><% } %>
+      <% if (page.role) { %><div class="row"><span class="label">职责</span><span><%= page.role %></span></div><% } %>
+      <% if (page.links && page.links.length) { %>
+      <div class="row"><span class="label">相关链接</span><span class="links">
+        <% page.links.forEach(function (l) { %><a href="<%- l.url %>" target="_blank" rel="noopener"><%= l.label %></a><% }); %>
+      </span></div>
+      <% } %>
+    </div>
+    <% if (page.screenshots && page.screenshots.length) { %>
+    <div class="screenshots">
+      <% page.screenshots.forEach(function (s) { %><img src="<%- s %>" alt="项目截图" loading="lazy"><% }); %>
+    </div>
+    <% } %>
+    <% } %>
+
+    <% if (tocHtml) { %>
+    <nav class="toc-wrap"><div class="toc-title">目录</div><%- tocHtml %></nav>
+    <% } %>
+
+    <div class="article-body"><%- page.content %></div>
+  </article>
+</main>

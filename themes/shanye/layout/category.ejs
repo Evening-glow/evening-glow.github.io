@@ -1,0 +1,57 @@
+<%
+  /* 列表页：一级分类（模块）与二级分类共用
+     page.category 为当前分类名，page.posts 为该分类下的文章 */
+  var catName = page.category;
+  var mod = mod_of_category(catName);
+  var isModulePage = !!(mod && mod.name === catName);
+  var posts = page.posts;
+%>
+<main>
+  <section class="page-banner"><div class="container">
+    <div class="crumb">
+      <a href="<%- url_for('/') %>">首页</a> /
+      <% if (isModulePage) { %>
+        <%= catName %>
+      <% } else { %>
+        <a href="<%- mod_url(mod) %>"><%= mod.name %></a> / <%= catName %>
+      <% } %>
+    </div>
+    <h1><%= isModulePage ? catName : mod.name + ' · ' + catName %></h1>
+    <p class="desc"><%= isModulePage ? mod.desc : '分类：' + catName %> · 共 <%= posts.length %> 篇</p>
+  </div></section>
+
+  <div class="container">
+    <% if (mod) { %>
+    <div class="filters">
+      <a href="<%- mod_url(mod) %>"<%- isModulePage ? ' class="active"' : '' %>>全部</a>
+      <% mod_categories(mod).forEach(function (c) { %>
+      <a href="<%- cat_url(mod, c.name) %>"<%- (!isModulePage && c.name === catName) ? ' class="active"' : '' %>><%= c.name %></a>
+      <% }); %>
+    </div>
+    <% } %>
+
+    <% if (posts.length) { %>
+    <div class="card-grid">
+      <% posts.each(function (post) { %>
+      <a class="post-card" href="<%- url_for(post.path) %>">
+        <div class="card-cover">
+          <% if (post.cover) { %><img src="<%- post.cover %>" alt="<%= post.title %>" loading="lazy"><% } %>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="chip"><%= sub_of_post(post) %></span></div>
+          <h3 class="card-title"><%= post.title %></h3>
+          <p class="card-summary"><%= summary_of(post) %></p>
+          <div class="card-meta"><%= mod ? mod.name : '' %> · <%= date(post.date, 'YYYY-MM-DD') %></div>
+        </div>
+      </a>
+      <% }); %>
+    </div>
+    <% } else { %>
+    <div class="empty">
+      <div class="empty-icon"><%- icon('wind') %></div>
+      <p>山野寂寂，此处暂无内容</p>
+      <a href="<%- url_for('/') %>" class="btn-back">返回首页</a>
+    </div>
+    <% } %>
+  </div>
+</main>

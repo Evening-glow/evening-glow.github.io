@@ -1,0 +1,12 @@
+<% /* 普通页面：关于我等 */ %>
+<main>
+  <section class="page-banner"><div class="container">
+    <div class="crumb"><a href="<%- url_for('/') %>">首页</a> / <%= page.title %></div>
+    <h1><%= page.title %></h1>
+    <% if (page.description) { %><p class="desc"><%= page.description %></p><% } %>
+  </div></section>
+
+  <div class="container">
+    <article class="article"><div class="article-body"><%- page.content %></div></article>
+  </div>
+</main>

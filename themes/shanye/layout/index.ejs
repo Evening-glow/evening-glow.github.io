@@ -1,0 +1,46 @@
+<% /* 首页：简介 + 三大内容入口 + 最新内容 */ %>
+<main>
+  <section class="hero"><div class="container"><div class="hero-grid">
+    <div>
+      <h1><%= config.title %></h1>
+      <p class="tagline"><%= config.subtitle %></p>
+      <p class="intro"><%= theme.intro %></p>
+    </div>
+    <div class="hero-media"><img src="<%- theme.hero_image %>" alt="风景" loading="lazy"></div>
+  </div></div></section>
+
+  <div class="container">
+    <%- ridge() %>
+
+    <div class="section-title">内容入口</div>
+    <section class="entries">
+      <% theme.modules.forEach(function (m) { %>
+      <a class="entry" href="<%- mod_url(m) %>">
+        <div class="ico"><%- icon(m.icon) %></div>
+        <div class="entry-en"><%= m.en %></div>
+        <div class="entry-name"><%= m.name %></div>
+        <p class="entry-desc"><%= m.desc %>（<%= posts_of(m).length %>）</p>
+      </a>
+      <% }); %>
+    </section>
+
+    <div class="section-title">最新内容</div>
+    <% var latestPosts = site.posts.sort('-date').limit(theme.latest_count || 6); %>
+    <% if (latestPosts.length) { %>
+    <ul class="post-list">
+      <% latestPosts.each(function (post) { %>
+      <li class="post-item"><a href="<%- url_for(post.path) %>">
+        <div class="post-title"><%= post.title %></div>
+        <div class="post-meta"><%= mod_of_post(post) ? mod_of_post(post).name + ' · ' : '' %><%= sub_of_post(post) %> · <%= date(post.date, 'YYYY-MM-DD') %></div>
+        <div class="post-summary"><%= summary_of(post) %></div>
+      </a></li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <div class="empty">
+      <div class="empty-icon"><%- icon('wind') %></div>
+      <p>暂无最新发布</p>
+    </div>
+    <% } %>
+  </div>
+</main>

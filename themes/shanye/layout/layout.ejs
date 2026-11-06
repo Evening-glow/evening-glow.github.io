@@ -1,0 +1,41 @@
+<%
+  /* 全局骨架：所有页面共用。header / footer 直接内联，避免多余的 partial 层级。 */
+  var cur = page.path || '';
+  var pageTitle = page.title || page.category || '';
+%>
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle ? pageTitle + ' · ' : '' %><%= config.title %></title>
+  <meta name="description" content="<%= page.description || config.description %>">
+  <meta name="author" content="<%= config.author %>">
+  <link rel="stylesheet" href="<%- url_for('css/style.css') %>">
+</head>
+<body>
+<header class="site-header"><div class="container">
+  <a class="brand" href="<%- url_for('/') %>"><span class="dot"></span><%= config.title %></a>
+  <button class="menu-toggle" id="menu-toggle" aria-label="切换菜单">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <nav class="nav" id="site-nav">
+    <a href="<%- url_for('/') %>"<%- (!cur || cur === 'index.html') ? ' class="active"' : '' %>>首页</a>
+    <% theme.modules.forEach(function (m) { %>
+    <a href="<%- mod_url(m) %>"<%- cur.indexOf(slug_of(m.name) + '/') === 0 ? ' class="active"' : '' %>><%= m.name %></a>
+    <% }); %>
+    <a href="<%- url_for('about/') %>"<%- cur.indexOf('about/') === 0 ? ' class="active"' : '' %>>关于我</a>
+  </nav>
+</div></header>
+
+<%- body %>
+
+<footer class="site-footer"><div class="container">
+  <span>© <%= new Date().getFullYear() %> <%= config.author %></span>
+  <span><%= config.subtitle %></span>
+</div></footer>
+<script src="<%- url_for('js/mobile.js') %>"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+# ============================================================
+# 主题：山野（shanye）
+# 清新风景风 · 个人博客主题
+# 依据《产品需求文档.md》v1.0：三大模块 = 一级分类，模块下分类 = 二级分类
+# ============================================================
+
+# ---------------- 首页视觉 ----------------
+# 首页 Hero 风景图
+hero_image: https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=minimal%20pastel%20landscape%20misty%20mountains%20lake%20dawn%20illustration%20fresh%20airy%20soft%20colors&image_size=landscape_16_9
+
+# 首页简介
+intro: 欢迎来到我的个人空间。这里存放三类内容：做过的东西（作品集）、踩过的坑与经验（技术分享）、以及正在学的内容（学习记录）。希望它们既能对外讲清楚我能做什么，也能帮自己长期沉淀。
+
+# 首页「最新内容」条数
+latest_count: 6
+
+# ---------------- 三大模块（一级分类） ----------------
+# key      模块标识，同时作为列表页路径（/<key>/）
+# name     模块中文名（必须与文章 categories 的第一级一致）
+# en       英文名（用于入口卡片）
+# icon     入口图标：mountain | pen | book
+# desc     模块简介
+# categories  模块下的二级分类（name 必须与文章 categories 的第二级一致）
+#             slug 用于列表页路径（/<key>/<slug>/）
+#
+# 新增一个分类：在对应模块的 categories 下加一项即可，无需修改模板代码。
+modules:
+  - key: portfolio
+    name: 作品集
+    en: Portfolio
+    icon: mountain
+    desc: 做过的项目与成果
+    categories:
+      - { name: 'Web 应用', slug: web }
+      - { name: '移动端 / 小程序', slug: mobile }
+      - { name: '工具 / 脚本', slug: tools }
+      - { name: '开源项目', slug: open-source }
+      - { name: '设计 / 视觉', slug: design }
+      - { name: '其他', slug: other }
+  - key: blog
+    name: 技术分享
+    en: Blog
+    icon: pen
+    desc: 技术文章与经验总结
+    categories:
+      - { name: '前端', slug: frontend }
+      - { name: '后端', slug: backend }
+      - { name: '工程化 / 架构', slug: architecture }
+      - { name: '性能优化', slug: performance }
+      - { name: '运维 / 部署', slug: devops }
+      - { name: '工具链', slug: toolchain }
+  - key: notes
+    name: 学习记录
+    en: Learning
+    icon: book
+    desc: 学习过程与知识笔记
+    categories:
+      - { name: '读书笔记', slug: reading }
+      - { name: '课程笔记', slug: course }
+      - { name: '源码学习', slug: source-code }
+      - { name: '专题系列', slug: series }
+      - { name: '算法 / 刷题', slug: algorithm }
+      - { name: '杂记', slug: misc }
+
+# ---------------- 页脚 ----------------
+footer_text: ''
