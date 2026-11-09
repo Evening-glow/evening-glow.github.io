@@ -18,7 +18,7 @@ description: 个人简介、技能栈与联系方式
 
 ## 联系方式
 
-- 邮箱：hello@example.com
-- GitHub：https://github.com/
+- 邮箱：2966511047@qq.com
+- GitHub：https://github.com/Evening-glow
 
 > 有合作或交流的想法，欢迎通过以上方式联系我。
