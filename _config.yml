@@ -122,7 +122,6 @@ ignore:
 
 # ---------------- 扩展 ----------------
 theme: shanye
-post_asset_folder: true
 
 # ---------------- 部署 ----------------
 # 部署到 GitHub Pages（见 PRD 第 11 节）
